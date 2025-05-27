@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clínica de Maternidad Rafael Calvo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #00b5cb;
+      --secondary: #af91d0;
+      --accent: #7a5e99;
+      --light: #fef3e6;
+      --dark: #333333;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    
+    .card {
+      width: 100%;
+      max-width: 550px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      background: white;
+      position: relative;
+    }
+    
+    .banner {
+      background-color: var(--primary);
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .banner::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 20px;
+      background: linear-gradient(to bottom right, transparent 49%, white 50%);
+    }
+    
+    .logo {
+      width: 320px;
+      height: 220px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .logo img {
+      width: 80%;
+      height: auto;
+    }
+    
+    .content {
+      padding: 30px;
+      position: relative;
+    }
+    
+    .clinic-name {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .clinic-name .main-name {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--accent);
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+    
+    .clinic-name .sub-name {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--secondary);
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.3;
+      margin-top: 5px;
+    }
+    
+    .description {
+      color: var(--dark);
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+    
+    .highlight {
+      color: var(--primary);
+      font-weight: 500;
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 25px;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      background: var(--light);
+      padding: 12px 15px;
+      border-radius: 12px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      color: var(--dark);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .contact-item:hover {
+      background: white;
+      box-shadow: 0 5px 15px rgba(0, 181, 203, 0.1);
+    }
+    
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      background-color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 15px;
+      color: white;
+      font-size: 18px;
+    }
+    
+    .contact-text {
+      flex: 1;
+    }
+    
+    .contact-label {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 2px;
+    }
+    
+    .contact-value {
+      font-weight: 500;
+      font-size: 14px;
+    }
+    
+    .footer {
+      background-color: var(--secondary);
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+    
+    .social-title {
+      font-size: 14px;
+      margin-bottom: 15px;
+      opacity: 0.9;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    
+    .social-link {
+      color: white;
+      font-size: 25px;
+      transition: transform 0.3s ease;
+    }
+    
+    .social-link:hover {
+      transform: translateY(-3px);
+    }
+    
+    .decoration {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+    
+    .shape {
+      position: absolute;
+      opacity: 0.05;
+    }
+    
+    .shape-1 {
+      width: 80px;
+      height: 80px;
+      background-color: var(--primary);
+      border-radius: 50%;
+      top: -20px;
+      right: -20px;
+    }
+    
+    .shape-2 {
+      width: 60px;
+      height: 60px;
+      background-color: var(--secondary);
+      border-radius: 50%;
+      bottom: 30px;
+      left: -15px;
+    }
+    
+    .watermark {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      font-size: 12px;
+      color: rgba(0, 0, 0, 0.1);
+      font-weight: 700;
+    }
+    
+    @media (max-width: 480px) {
+      .card {
+        border-radius: 16px;
+      }
+      
+      .content {
+        padding: 20px;
+      }
+      
+      .clinic-name .main-name {
+        font-size: 22px;
+      }
+      
+      .clinic-name .sub-name {
+        font-size: 18px;
+      }
+      
+      .description {
+        font-size: 14px;
+      }
+    }
+
+    .banner-container {
+        position: relative;
+        width: 100%;
+        height: 50px;
+    }
+
+    .black-banner {
+        width: 100%;
+        height: 50px;
+        background-color: #f8f8f8;
+        background-image: url('background-origen.png');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .banner-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        object-fit: cover;
+        z-index: 1;
+    }
+
+    .center-image {
+        width: 450px;
+        height: auto;
+    }
+
+    .banner-link {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        transition: transform 0.3s ease;
+    }
+
+    .banner-link:hover {
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+
+    .justify-text {
+      text-align: justify;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="decoration">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+    </div>
+    
+    <div class="banner">
+      <div class="logo">
+        <img src="logo2.png" alt="Logo Maternidad Rafael Calvo">
+      </div>
+    </div>
+    
+    <div class="content">
+      <div class="clinic-name">
+        <div class="main-name">Clínica de Maternidad</div>
+        <div class="sub-name">Rafael Calvo</div>
+      </div>
+      
+      <p class="description justify-text">
+        En nuestra clínica, cada mujer es <span class="highlight">protagonista de su historia</span>. Ofrecemos atención médica integral con enfoque humano, acompañando a madres y familias desde el primer latido. Creemos en el <span class="highlight">parto respetado</span>, la salud con dignidad y el cuidado con amor.
+      </p>
+      
+      <div class="contact-info">
+        <a href="tel:+575123456789" class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-phone-alt"></i>
+          </div>
+          <div class="contact-text">
+            <div class="contact-label">Llámanos</div>
+            <div class="contact-value">+57 5 123 456 789</div>
+          </div>
+        </a>
+        
+        <a href="https://maternidadrafaelcalvo.gov.co" target="_blank" class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <div class="contact-text">
+            <div class="contact-label">Visítanos</div>
+            <div class="contact-value">maternidadrafaelcalvo.gov.co</div>
+          </div>
+        </a>
+        
+        <a href="mailto:contacto@maternidadrafaelcalvo.gov.co" class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="contact-text">
+            <div class="contact-label">Escríbenos</div>
+            <div class="contact-value">contacto@maternidadrafaelcalvo.gov.co</div>
+          </div>
+        </a>
+      </div>
+      
+      <div class="watermark">MRC · 2023</div>
+    </div>
+    
+    <div class="footer">
+      <div class="social-title">Síguenos en redes sociales</div>
+      <div class="social-links">
+        <a href="https://www.instagram.com/maternidadrafaelcalvo" target="_blank" class="social-link">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/maternidadrafaelcalvo" target="_blank" class="social-link">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://wa.me/575123456789" target="_blank" class="social-link">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
+    </div>
+    <div class="banner-container">
+        <div class="black-banner">
+            <a href="https://jesr2104.github.io/DigitalBusinessCard-Origen/" class="banner-link" target="_blank">
+                <img src="origen-link.png" alt="Logo centrado" class="center-image">
+            </a>
+        </div>
+    </div>
+  </div>
+</body>
+</html>
